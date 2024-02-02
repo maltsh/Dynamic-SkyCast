@@ -1,4 +1,4 @@
-# SkyCast Site
+# DYNAMIC SkyCast
 
 ![Weather Site](assets/sky.png)
 
