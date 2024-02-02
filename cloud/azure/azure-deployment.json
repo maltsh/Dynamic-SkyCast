@@ -1,0 +1,36 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "apiVersion": "2018-02-01",
+        "name": "skycast-weather-appservice",
+        "type": "Microsoft.Web/sites",
+        "location": "East US",
+        "kind": "app",
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'skycast-weather-appservice-plan')]",
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "WEATHER_API_KEY",
+                "value": "your-weather-api-key"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "apiVersion": "2018-02-01",
+        "name": "skycast-weather-appservice-plan",
+        "type": "Microsoft.Web/serverfarms",
+        "location": "East US",
+        "properties": {
+          "name": "skycast-weather-appservice-plan",
+          "sku": "F1",
+          "workerSize": 0
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,52 @@
+# Node.js
+node_modules/
+
+# Webpack
+dist/
+
+# Compiled files
+*.min.js
+*.min.css
+
+# Logs
+logs/
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# IDE files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# Tailwind CSS
+.tailwind/
+
+# Compiled output
+/public/
+
+# Database
+/database/
+
+# Environment variables
+.env
+
+# Node.js generated files
+npm-debug.log
+yarn-error.log
+
+# macOS
+.DS_Store
+
+# Windows
+desktop.ini

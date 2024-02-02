@@ -1,0 +1,22 @@
+# kubernetes/deployment.yaml
+# Kubernetes Deployment configuration for deploying the SkyCast Weather Website
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skycast-weather-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: skycast-weather
+  template:
+    metadata:
+      labels:
+        app: skycast-weather
+    spec:
+      containers:
+      - name: skycast-weather
+        image: skycast-weather:latest
+        ports:
+        - containerPort: 3000

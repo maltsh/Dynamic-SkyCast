@@ -1,0 +1,28 @@
+# aws/cloudformation-template.yml
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "AWS CloudFormation template for deploying Skycast Weather website"
+
+Resources:
+  SkycastWeatherApp:
+    Type: AWS::ElasticBeanstalk::Application
+    Properties:
+      ApplicationName: SkycastWeatherApp
+
+  SkycastWeatherEnvironment:
+    Type: AWS::ElasticBeanstalk::Environment
+    Properties:
+      ApplicationName: SkycastWeatherApp
+      SolutionStackName: "64bit Amazon Linux 2 v5.4.0 running Node.js 14"
+      OptionSettings:
+        - Namespace: aws:elasticbeanstalk:environment
+          OptionName: EnvironmentType
+          Value: SingleInstance
+        - Namespace: aws:elasticbeanstalk:application:environment
+          OptionName: WEATHER_API_KEY
+          Value: "your-weather-api-key"
+      # Add other configuration settings as needed
+
+Outputs:
+  WebsiteURL:
+    Description: "URL of the Skycast Weather website"
+    Value: !Sub "http://${SkycastWeatherEnvironment.EndpointURL}"

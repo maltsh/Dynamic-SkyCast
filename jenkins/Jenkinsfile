@@ -1,0 +1,24 @@
+// jenkins/Jenkinsfile
+// Jenkins Pipeline script for building and deploying the SkyCast Weather Website
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Insert build steps here (e.g., npm install, webpack)
+            }
+        }
+        stage('Test') {
+            steps {
+                // Insert test steps here (e.g., npm test)
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Insert deployment steps here (e.g., deploy to AWS S3)
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+# cloud/gcp/gcp-setup.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skycast-weather-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skycast-weather
+  template:
+    metadata:
+      labels:
+        app: skycast-weather
+    spec:
+      containers:
+      - name: skycast-weather-container
+        image: gcr.io/your-project-id/skycast-weather:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: skycast-weather-service
+spec:
+  selector:
+    app: skycast-weather
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer

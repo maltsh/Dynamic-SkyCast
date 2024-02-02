@@ -1,0 +1,57 @@
+/* web_development/bootstrap/styles.css */
+/* Add your custom styles for the weather website */
+
+/* Example styles for the SkyCast Weather Website */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .search-box {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  
+  .current-location {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .search-input {
+    width: 70%;
+    padding: 10px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .weather-info {
+    margin-top: 20px;
+  }
+  
+  .weather-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Add more styles as needed */
+  

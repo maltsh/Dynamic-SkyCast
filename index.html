@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="icon" href="assets/image1.png" type="image/x-icon">
+  	<link rel="stylesheet" href="./global.css" />
+  	<link rel="stylesheet"  href="./index.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" />
+
+<title>SkyCast</title>
+
+</head>
+<body>
+  	
+  	<div class="frame">
+    		<div class="frame1">
+				<div class="rectangle">
+					<input type="text"  id="location" placeholder="Enter Location">
+				</div>
+      			<div class="frame2">
+        				<div class="rectangle1" onclick="searchLocation()">
+        				</div>
+        				<div class="search" id="searchButton">Search</div>
+      			</div>
+      			<div class="frame3">
+        				<div class="rectangle2" id="locationDisplay" style="margin-left: 40px;">
+        				</div>
+        				<div class="current-location" style="margin-left: 35px; margin-top: -3px;">Current Location</div>
+      			</div>
+    		</div>
+    		<div class="frame4">
+      			<div class="frame5">
+        				<div class="rectangle3">
+        				</div>
+        				<div class="rectangle4">
+        				</div>
+      			</div>
+      			<img class="untitled-design-6-1" alt="imageA" src="assets/imageA.png" style="width: 35.99%;	height: 490px; margin-left: 535px; margin-top: 90px;">
+      			
+      			<img class="untitled-design-5-1" alt="imageB" src="assets/imageB.png" style="margin-left: 83px;">
+      			
+      			<div class="frame-child">
+      			</div>
+      			<div class="date">DATE:</div>
+      			<div class="speed">Speed:</div>
+      			<div class="clear-sky">Clear Sky:</div>
+      			<img class="icon" alt="imageC" src="assets/imageC.png">
+      			
+      			<img class="icon1" alt="imageD" src="assets/imageD.png">
+      			
+      			<img class="icon2" alt="imageE" src="assets/imageE.png">
+      			
+      			<div class="humidity">Humidity:</div>
+    		</div>
+    		<img class="icon3" alt="imageF" src="assets/imageF.png">
+    		
+    		<img class="sky-1-icon" alt="imageG" src="assets/imageG.png">
+    		
+  	</div>
+  	
+	  <script>
+		async function searchLocation() {
+    // Get the input value from the text box
+    var locationInput = document.getElementById("location").value;
+
+    // Call the weather API (replace 'YOUR_API_KEY' with your actual API key)
+    var apiKey = '0390c7c7aed6ad7fc3be2aff198053c9';
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}`;
+    
+    try {
+      var response = await fetch(apiUrl);
+      var data = await response.json();
+
+      // Update the text in the rectangle2 and current-location elements
+      document.getElementById("locationDisplay").innerText = locationInput;
+      document.querySelector(".current-location").innerText = locationInput;
+
+      // Update the levels based on weather data
+      updateWeatherLevels(data.main.humidity, data.clouds.all, data.wind.speed);
+
+      // Update the date based on weather data
+      updateDate(data.dt);
+      
+      // Clear the input field
+      document.getElementById("location").value = "";
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+}
+
+function updateDate(timestamp) {
+    // Convert timestamp to Date object
+    var date = new Date(timestamp * 1000);
+
+    // Format the date as desired (adjust format based on your preference)
+    var formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())}`;
+
+    // Update the text in the date element
+    document.querySelector(".date").innerText = `DATE: ${formattedDate}`;
+}
+
+function updateWeatherLevels(humidity, clearSky, speed) {
+    // Update the text in the humidity, clear-sky, and speed elements
+    document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
+    document.querySelector(".clear-sky").innerText = `Clear Sky: ${clearSky}%`;
+    document.querySelector(".speed").innerText = `Speed: ${speed} m/s`;
+}
+
+function padZero(number) {
+    return number < 10 ? '0' + number : number;
+}
+
+	  </script>	  
+	    
+
+  	
+</body>
+</html>

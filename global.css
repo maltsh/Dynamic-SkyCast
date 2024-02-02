@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    line-height: normal;
+ }
+ 
+ 
+ :root {
+    
+    /* fonts */
+    --font-roboto: Roboto;
+    
+    /* font sizes */
+    --font-size-11xl: 30px;
+    
+    /* Colors */
+    --color-lightgoldenrodyellow: #f9ffd7;
+    --color-white: #fff;
+    --color-forestgreen-100: #168e22;
+    
+ }
+ 
