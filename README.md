@@ -1,6 +1,5 @@
-# Weather Site
+# SkyCast
 
-# Weather app
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Weather%20App-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/7678)
 
